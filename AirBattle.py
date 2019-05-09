@@ -36,6 +36,7 @@ bright_blue = (0, 0, 210)
 bright_yellow = (255, 255, 0)
 purple = (160, 32, 240)
 steelblue = (99, 184, 255)
+skyblue = (135, 206, 250)
 
 pygame.init()
 screen = pygame.display.set_mode((screen_width, screen_height))
@@ -120,8 +121,7 @@ def pause():
                 os._exit(0)
 
         screen.fill(black)
-        message_display("Paused", 200, 150, 60, red)
-        message_display("What do you want to do next?", 200, 200, 35, red)
+        message_display("Paused", 200, 170, 90, red)
         # button set
         button_fun("Continue Playing", 80, 250, 240, 50, bright_green, green, 35, blue, "continue")
         button_fun("Back to Main Menu", 80, 330, 240, 50, bright_red, red, 35, blue, "menu")
@@ -208,6 +208,8 @@ def button_fun(msg, x_coor, y_coor, width, height, active_color, inactive_color,
                 intro_menu()
             elif act == "help":
                 game_help()
+            elif act == "credit":
+                credit()
     else:
         pygame.draw.rect(screen, inactive_color, (x_coor, y_coor, width, height))
     message_display(msg, (x_coor + width / 2), (y_coor + height / 2), text_size, text_color)
@@ -221,19 +223,37 @@ def game_help():
                 pygame.quit()
                 os._exit(0)
         screen.fill(black)
-        message_display("AirBattle -- Help", 160, 45, 50, white)
-        message_display("Welcome to the game Air Battle!", 195, 90, 30, white)
-        message_display("Your task is to dodge...", 150, 130, 30, white)
-        message_display("as Many of Enemies as Possible!", 200, 170, 30, white)
-        message_display("Use Arrow Keys:", 120, 210, 30, white)
-        message_display("Left, Right, Up and Down", 162, 250, 30, white)
-        message_display("to control your Spacecraft", 170, 290, 30, white)
-        message_display("Use Keyboard 'p' to pause the game", 215, 330, 30, white)
-        message_display("Have fun!", 105, 370, 40, white)
+        message_display("AirBattle -- Help", 164, 45, 50, white)
+        message_display("Welcome to the game Air Battle!", 190, 90, 30, yellow)
+        message_display("Try to hit your enemies,", 148, 130, 30, steelblue)
+        message_display("while avoid crashing into them!", 188, 170, 30, steelblue)
+        message_display("Use Arrow Keys:", 112, 210, 30, green)
+        message_display("Left, Right, Up and Down", 153, 250, 30, green)
+        message_display("to control your Spacecraft", 160, 290, 30, green)
+        message_display("Use Keyboard 'p' to pause the game", 205, 330, 30, red)
+        message_display("Have fun!", 98, 370, 40, white)
         button_fun("Back to Main Menu", 80, 400, 240, 50, steelblue, darkersteelblue, 35, blue, "menu")
         pygame.display.update()
         clock.tick(10)
 
+# display the list of credits
+def credit():
+    while True:
+        for e in pygame.event.get():
+            if e.type == pygame.QUIT:
+                pygame.quit()
+                os._exit(0)
+        screen.fill(black)
+        message_display("AirBattle -- Credits", 175, 45, 50, white)
+        message_display("Game Version:", 200, 100, 40, green)
+        message_display("1.0.0", 200, 140, 50, green)
+        message_display("Graphic Editor: Jiaxin Bu", 190, 200, 40, skyblue)
+        message_display("Designer: Xinran Wang", 177, 250, 40, skyblue)
+        message_display("Programmer: Xinran Wang", 200, 300, 40, skyblue)
+        message_display("2019.5", 200, 355, 45, white)
+        button_fun("Back to Main Menu", 80, 400, 240, 50, steelblue, darkersteelblue, 35, blue, "menu")
+        pygame.display.update()
+        clock.tick(10)
 
 # display the score on the screen
 def display_count(count):
@@ -387,5 +407,5 @@ def main():
     pygame.quit()
     os._exit(0)
 
-if __name__ == "main": 
+if __name__ == "__main__": 
     main()
