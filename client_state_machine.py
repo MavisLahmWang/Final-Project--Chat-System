@@ -5,6 +5,7 @@ Created on Sun Apr  5 00:00:32 2015
 """
 from chat_utils import *
 import json
+import os
 
 class ClientSM:
     def __init__(self, s):
@@ -104,8 +105,7 @@ class ClientSM:
                 
                 # game!
                 elif my_msg == "game":
-                    import AirBattle
-                    AirBattle.main()
+                    os.system("python3 ./AirBattle.py")
 
                 else:
                     self.out_msg += menu
