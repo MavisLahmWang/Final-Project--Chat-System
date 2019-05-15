@@ -66,14 +66,17 @@ class Client:
         li = login_wind(self)
         li.show_window()      
         my_msg, peer_msg = self.get_msgs()
-        self.name = li.usn
-        msg = json.dumps({"action":"login", "name":self.name})
-        self.send(msg)
-        self.state = S_LOGGEDIN
-        self.sm.set_state(S_LOGGEDIN)
-        self.sm.set_myname(self.name)
-        self.print_instructions()
-        return (True)
+        if li.sign == 'success':
+            self.name = li.usn
+            msg = json.dumps({"action":"login", "name":self.name})
+            self.send(msg)
+            self.state = S_LOGGEDIN
+            self.sm.set_state(S_LOGGEDIN)
+            self.sm.set_myname(self.name)
+            self.print_instructions()
+            return (True)
+        else:
+            li.window.destroy()
 
     def read_input(self):
         while True:
