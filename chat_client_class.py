@@ -5,7 +5,10 @@ import sys
 import json
 from chat_utils import *
 import client_state_machine as csm
-
+from login import *
+import tkinter as tk
+import tkinter.messagebox
+import pickle
 import threading
 
 class Client:
@@ -60,24 +63,17 @@ class Client:
             self.system_msg = ''
 
     def login(self):
+        li = login_wind(self)
+        li.show_window()      
         my_msg, peer_msg = self.get_msgs()
-        if len(my_msg) > 0:
-            self.name = my_msg
-            msg = json.dumps({"action":"login", "name":self.name})
-            self.send(msg)
-            response = json.loads(self.recv())
-            if response["status"] == 'ok':
-                self.state = S_LOGGEDIN
-                self.sm.set_state(S_LOGGEDIN)
-                self.sm.set_myname(self.name)
-                self.print_instructions()
-                return (True)
-            elif response["status"] == 'duplicate':
-                self.system_msg += 'Duplicate username, try again'
-                return False
-        else:               # fix: dup is only one of the reasons
-           return(False)
-
+        self.name = li.usn
+        msg = json.dumps({"action":"login", "name":self.name})
+        self.send(msg)
+        self.state = S_LOGGEDIN
+        self.sm.set_state(S_LOGGEDIN)
+        self.sm.set_myname(self.name)
+        self.print_instructions()
+        return (True)
 
     def read_input(self):
         while True:
@@ -90,8 +86,6 @@ class Client:
     def run_chat(self):
         self.init_chat()
         self.system_msg += 'Welcome to ICS chat\n'
-        self.system_msg += 'Please enter your name: '
-        self.output()
         while self.login() != True:
             self.output()
         self.system_msg += 'Welcome, ' + self.get_name() + '!'
