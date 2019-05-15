@@ -73,6 +73,7 @@ class login_wind:
         
     def user_login(self):
         global usn
+        global sign
         self.usn = self.var_usn.get()
         self.psw = self.var_psw.get()
     #examine being or not being
@@ -88,7 +89,8 @@ class login_wind:
             if self.psw == self.usr_info[self.usn]:
                 tk.messagebox.showinfo(title = 'welcome', message = 'congratulation ' + self.usn)
                 self.window.destroy()
-                return 
+                self.sign = 'success'
+                return self.sign
             else:
                 tk.messagebox.showerror(message = 'wrong password')
         elif self.usn == '' or self.psw =='':
