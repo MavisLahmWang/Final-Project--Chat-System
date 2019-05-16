@@ -140,7 +140,7 @@ class login_wind:
                             
     # examine whether the username exists or passwords are same
         if self.newname in self.exist_usr_info:
-            tk.messagebox.showerror(title = 'Mistake', message = self.newname + 'has already existed')
+            tk.messagebox.showerror(title = 'Mistake', message = self.newname + ' has already existed')
         elif self.newname == '' or self.newpw == '' or self.newpw_cf == '':
             tk.messagebox.showerror(title = 'Mistake', message = 'empty')
         elif self.newpw != self.newpw_cf:
@@ -149,7 +149,7 @@ class login_wind:
             self.exist_usr_info[self.newname] = self.newpw
             with open('usr_info.pickle','wb') as usr_file:
                 pickle.dump(self.exist_usr_info, usr_file)
-            tk.messagebox.showinfo('Welcome','Successful sign up!!!')
+            tk.messagebox.showinfo('Welcome','Successfully sign up!!!')
             self.window_signup.destroy()
 
 
