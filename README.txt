@@ -1,6 +1,6 @@
 This is the Final Chat System made by Jiaxin Bu and Xinran Wang.
 
-WARNING: Please download all files in one directory (e.g.: "work_directory"), and change the current directory (cd) to this directory (i.e., "work_directory"). Then run the chat system files. Otherwise, the pygame may not work because we used os.system method, which calls for all the files in one directory to open the game window.
+WARNING: Please download all files in one directory (e.g.: "work_directory"), and change the current directory (cd) to this directory (i.e., "work_directory"). Then run the chat system files. Otherwise, the pygame may not work because we used os.system method, which requires all the files in one directory so as to open the game window.
 
 File introductions:
 
@@ -24,7 +24,7 @@ We use the OOP method to draw the whole login system to ensure that every functi
 During the whole process, we solved three main problems:
  1) The login part run before the user enter anything(username and password), which means that once we open the chat system, the window showing 'empty' message popup.
  2) The logout button didn't work as it should be. After the user click the logout button, though the login window is destroyed, the chat system continues running.
- 3) 
+ 3) The pygame quit mechanism. Since in an ios system cannot support the quit mechanism of "pygame.quit()" and "quit()", which are posted on many programming websites (that are programmed using windows), we searched online and find other quit mechanisms such as "sys.exit()" and "os._exit(0)", which can perfectly make the pygame window close and quit the whole game.
 
 
-Since our codes are all written and modified by ourselves personally，we are confident of completely understanding the logics in every file :) Even though it is a tough process, we are satisfied with the fruit we earn.
+Although we viewed lots of online tutorials and instructions on pygame and login system, all our codes are written and modified by ourselves personally，so we are confident of completely understanding the logics in every file :) Even though it is a tough process, we are satisfied with the fruit we have earned.
