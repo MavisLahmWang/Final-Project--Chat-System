@@ -1,6 +1,6 @@
 This is the Final Chat System made by Jiaxin Bu and Xinran Wang.
 
-WARNING: Please download all files in one directory (e.g.: "work_directory"), and change the current directory to this directory (i.e., "work_directory"). Then run the chat system files. Otherwise, the pygame may not work because we used os.system method, which calls for all the files in one directory to open the game window.
+WARNING: Please download all files in one directory (e.g.: "work_directory"), and change the current directory (cd) to this directory (i.e., "work_directory"). Then run the chat system files. Otherwise, the pygame may not work because we used os.system method, which calls for all the files in one directory to open the game window.
 
 File introductions:
 
