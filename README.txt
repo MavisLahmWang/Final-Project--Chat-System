@@ -13,10 +13,10 @@ Information referred to when developing the PyGame: https://pythonprogramming.ne
 By the way, we didn't use the Sprite module built in pygame (even if it is cooler and more fancy), we basically used the OOP method (which we learned on ICS class this semester) to draw the bullets and enemies continually on the screen.
 
 2. The Login system
-xk.png: the background image of the login window
-login.py: store the login_wind function
-login1.0.py: independent login system
-usrinfo_pickle: store all the username and password information
+xk.png: the background image of the login window;
+login.py: store the login_wind function;
+login1.0.py: independent login system;
+usrinfo_pickle (it will be automatically created after one user registered): store all the username and password information.
 
 Information referred to when developing the login system: https://blog.csdn.net/weixin_40450867/article/details/81431718 (This code teaches how to use tkinter to build basic login system)
 We use the OOP method to draw the whole login system to ensure that every function can be called in order as we want.
@@ -24,7 +24,7 @@ We use the OOP method to draw the whole login system to ensure that every functi
 During the whole process, we solved three main problems:
  1) The login part run before the user enter anything(username and password), which means that once we open the chat system, the window showing 'empty' message popup.
  2) The logout button didn't work as it should be. After the user click the logout button, though the login window is destroyed, the chat system continues running.
- 3) The pygame quit mechanism. Since in an ios system cannot support the quit mechanism of "pygame.quit()" and "quit()", which are posted on many programming websites (that are programmed using windows), we searched online and find other quit mechanisms such as "sys.exit()" and "os._exit(0)", which can perfectly make the pygame window close and quit the whole game.
+ 3) The pygame quit mechanism. Since in an ios system cannot support the quit mechanism of "pygame.quit()" and "quit()", which are posted on many programming websites (that are programmed using windows), we searched online and find other quit mechanisms such as "sys.exit()" and "os._exit(0)", which can perfectly make the pygame window close and quit the whole game. But when we tried to import the game file into the chat system, all the quit mechanisms do not work and they will brutally break the whole client connection. After long time struggle, we finally figured out that if we can use os module to exit, why not using os.system method to also open the game file? Fortunately, it worked well. We guess it is because the os module creates a platform for only opening game file and closing game file, so that this operation will not affect the chatting function and clients can still continue chatting after closing the game; while using import (which is the improper way) means we implement the whole game program into the chat system, when we call a quit mechanism, it will surely break the whole process.
+ 
 
-
-Although we viewed lots of online tutorials and instructions on pygame and login system, all our codes are written and modified by ourselves personally，so we are confident of completely understanding the logics in every file :) Even though it is a tough process, we are satisfied with the fruit we have earned.
+Although we viewed lots of online tutorials and instructions about pygame and login system, all our codes are written and modified by ourselves personally，so we are confident of completely understanding the logics in every file :) Even though it is a tough process, we are satisfied with the fruit we have earned.
