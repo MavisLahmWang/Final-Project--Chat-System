@@ -2,9 +2,24 @@ This is the Final Chat System made by Jiaxin Bu and Xinran Wang.
 
 WARNING: Please download all files in one directory (e.g.: "work_directory"), and change the current directory (cd) to this directory (i.e., "work_directory"). Then run the chat system files. Otherwise, the pygame may not work because we used os.system method, which requires all the files in one directory so as to open the game window.
 
+What you can do using this program:
+1. Signup or login (see "The Login System")
+2. Asking for the current time
+3. Seeing who others are in the chat room
+4. Connecting with peers and starting to chat (support multiple peers chatting at the same time)
+5. Searching a keyword-related chat history
+6. Playing a Pygame (see "The PyGame-related files")
+7. Asking the system to give you a beautiful sonnet
+8. Quit the chat system
+
 File introductions:
 
-1. The PyGame-related files
+1. The basic Chat System attachments
+chat_server.py: the server program which is used as a "central server" of the chat system
+chat_cmdl_client.py: the user window which is connected with the server and used as a "chatting window"
+chat_client_class.py, client_state_machine.py, chat_group.py: auxiliary programs for users' chat experience
+
+2. The PyGame-related files
 bullettt.png, enemy.png, spacecraft.png: basic images for the PyGame display;
 AirBattle.py: the main python file for running the game;
 client_state_machine: if user types in "game", the PyGame will start on the screen.
@@ -12,7 +27,7 @@ client_state_machine: if user types in "game", the PyGame will start on the scre
 Information referred to when developing the PyGame: https://pythonprogramming.net/pygame-python-3-part-1-intro/ (This is a basic introduction to PyGame); https://www.cnblogs.com/SRL-Southern/p/4942607.html (This code teaches how to create the classes of Bullets and Enemies).
 By the way, we didn't use the Sprite module built in pygame (even if it is cooler and more fancy), we basically used the OOP method (which we learned on ICS class this semester) to draw the bullets and enemies continually on the screen.
 
-2. The Login system
+3. The Login system
 xk.png: the background image of the login window;
 login.py: store the login_wind function;
 login1.0.py: independent login system;
