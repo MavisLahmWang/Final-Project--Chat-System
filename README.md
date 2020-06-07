@@ -1,11 +1,11 @@
-# ICS Final Project - Chat System, Made by Jiaxin Bu and Xinran Wang
+# ICS Final Project Made by Jiaxin Bu and Xinran Wang
 
 ## About This Project
 This is the Finalized version of ICS Chat System made by Jiaxin Bu and Xinran Wang during April ~ May, 2019.
 
 This chat system is made on MacOS system, so it is suitable for Mac devices, but has not been tested on Windows devices yet.
 
-## How to Play with It
+## How to Play with it
 WARNING: Before any further operations, please **download all files in one directory** (e.g.: "work_directory"), and **change the current directory (cd) to this directory** (i.e., "work_directory"). Then run the chat system files. Otherwise, the pygame may not work because we used os.system method, which requires all the files in one directory so as to open the game window.
 
 Steps to open up the whole chat system:
